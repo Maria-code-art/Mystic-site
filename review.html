@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 200px;
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #333;
+            font-weight: bold;
+            font-size: 0px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #49416d;
+        }
+
+        .reviews-container {
+            display: flex;
+            justify-content: center;
+            gap: 150px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .review {
+            background-color: #fff;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .review img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .review-text {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .author {
+            font-weight: bold;
+            margin-top: 100px;
+            font-size: 18px;
+        }
+
+        .button {
+            background-color: #49416d;
+            color: white;
+            border: none;
+            padding: 20px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #5d5d60;
+        }
+
+        .form-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .form-container form {
+            background-color: #fff;
+            padding: 60px;
+            width: 400px;
+            border-radius: 8px;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #ffffff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container button:hover {
+            background-color: #49416d;
+        }
+    </style>
+</head>
+<body>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог</title>
+<link rel="stylesheet" href="style.css">
+<nav>
+    <a href="index.html">О нас</a>
+    <a href="catalog.html">Каталог</a>
+    <a href="review.html">Отзывы</a>
+    <a href="mystic.html">Mystic Essence</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="basket.html">Корзина</a>
+</nav>
+<div class="reviews-container">
+    <div class="review">
+        <img src="C:\Users\marys\OneDrive\Рабочий стол\сайт кулоны\отзыв 3.jpg">
+        <div class="review-text">
+            <p>Брал кулон жене. Она в восторге !!!!. Говорит, что после недели носки самочувствие и правда улучшилось. Стоит своих денег.</p>
+        </div>
+        <div class="author">Сергей Анисимов</div>
+    </div>
+
+    <div class="review">
+        <img src="C:\Users\marys\OneDrive\Рабочий стол\сайт кулоны\отзыв 2.jpg">
+        <div class="review-text">
+            <p>Вы меня удивили. Цена - качество максимально удовлетворяют. Заказывала на свой страх и риск, но теперь я постоянный клиент.</p>
+        </div>
+        <div class="author">Татьяна Сергеева</div>
+    </div>
+
+    <div class="review">
+        <img src="C:\Users\marys\OneDrive\Рабочий стол\сайт кулоны\отзыв 1.jpg">
+        <div class="review-text">
+            <p>Все понравилось. Амулеты работают.</p>
+        </div>
+        <div class="author">Смурфик 786</div>
+    </div>
+</div>
+
+<button class="button" id="write-review-btn">Написать отзыв</button>
+
+<div class="form-container" id="form-container">
+    <form>
+        <h2>Напишите ваш отзыв</h2>
+        <input type="text" id="author-name" placeholder="Ваше имя" required>
+        <textarea id="review-text" rows="5" placeholder="ваш комментарий" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</div>
+
+<script>
+    const writeReviewBtn = document.getElementById('write-review-btn');
+    const formContainer = document.getElementById('form-container');
+
+    writeReviewBtn.addEventListener('click', () => {
+        formContainer.style.display = 'flex';
+    });
+
+    // Закрытие формы (можно добавить кнопку для закрытия или сделать по клику вне формы)
+    formContainer.addEventListener('click', (e) => {
+        if (e.target === formContainer) {
+            formContainer.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
