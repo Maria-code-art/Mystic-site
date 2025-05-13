@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystic Essence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">О нас</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="review.html">Отзывы</a>
+        <a href="mystic.html">Mystic Essence</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="basket.html">Корзина</a>
+    </nav>
+    <div class="container">
+        <div class="form-container" id="authForm">
+            <h1 id="formTitle">Вход в аккаунт</h1>
+            <form id="loginForm">
+                <input type="text" id="login" placeholder="Логин" required>
+                <input type="password" id="password" placeholder="Пароль" required>
+                <button type="submit" class="submit-btn">Войти</button>
+                <div class="forgot-password">
+                    <a href="#" id="forgotPassword">Забыли пароль?</a>
+                </div>
+            </form>
+            <div class="auth-options">
+                <p>Или войти через:</p>
+                <button class="social-btn" id="telegramLogin">Телеграм</button>
+                <button class="social-btn" id="mailLogin">Почта</button>
+                <button class="social-btn" id="vkLogin">ВКонтакте</button>
+            </div>
+            <p>Нет аккаунта? <a href="#" id="registerLink">Зарегистрироваться</a></p>
+        </div>
+        
+        <div class="form-container" id="registerForm" style="display:none;">
+            <h1 id="formTitle">Регистрация</h1>
+            <form id="registerFormContent">
+                <input type="text" id="firstName" placeholder="Имя" required>
+                <input type="text" id="lastName" placeholder="Фамилия" required>
+                <input type="email" id="email" placeholder="Электронная почта" required>
+                <input type="password" id="registerPassword" placeholder="Пароль" required>
+                <input type="password" id="confirmPassword" placeholder="Повторите пароль" required>
+                <input type="text" id="registerLogin" placeholder="Логин" required>
+                <button type="submit" class="submit-btn">Зарегистрироваться</button>
+            </form>
+            <p>Есть аккаунт? <a href="#" id="loginLink">Войти</a></p>
+        </div>
+
+        <div class="welcome-message" id="welcomeMessage" style="display:none;">
+            <h1>Добро пожаловать!</h1>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
