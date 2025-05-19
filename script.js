@@ -105,6 +105,36 @@ document.getElementById('registerFormContent').addEventListener('submit', functi
             const cardNumber = document.getElementById("cardNumber").value;
     
             alert(`Заказ оформлен!\nИмя: ${name}\nАдрес: ${address}\nНомер карты: ${cardNumber}`);
+            
+const cart = [];
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+button.addEventListener('click', function() {
+const productEl = this.closest('.product');
+const id = productEl.dataset.id;
+const name = productEl.dataset.name;
+const price = productEl.dataset.price;
+
+// Добавляем товар в корзину
+cart.push({ id, name, price });
+
+// Обновляем отображение корзины
+renderCart();
+});
+});
+
+function renderCart() {
+const cartItemsEl = document.getElementById('cart-items');
+cartItemsEl.innerHTML = ''; // очищаем корзину
+
+cart.forEach(item => {
+const li = document.createElement('li');
+li.textContent = `${item.name} — ${item.price} золота`;
+cartItemsEl.appendChild(li);
+});
+}
+
+
     
             // Закрыть модальное окно после оформления
             closeModal();
